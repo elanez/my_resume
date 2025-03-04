@@ -11,11 +11,14 @@ class PersonalInformation(models.Model):
     email = models.EmailField()
     address = models.CharField(max_length=100)
     linkedin = models.URLField(blank=True, null=True)
-    github = models.URLField(black=True, null=True)
+    github = models.URLField(blank=True, null=True)
     summary = models.TextField()
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
+    
+    class Meta:
+        verbose_name_plural = "Personal Information"
 
 
 class Skill(models.Model):
@@ -35,10 +38,14 @@ class Education(models.Model):
     end_date = models.DateField(blank=True, null=True)
     is_current = models.BooleanField(default=False)
     description = models.TextField()
-    gwa = models.FloatField(black=True, null=True)
+    gwa = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return f'{self.degree} from {self.institution}'
+    
+    class Meta:
+        ordering = ['-end_date', '-start_date']
+        verbose_name_plural = "Education"
 
 
 class Experience(models.Model):
@@ -53,9 +60,12 @@ class Experience(models.Model):
 
     def __str__(self):
         return f'{self.title} at {self.company}'
+    
+    class Meta:
+        ordering = ['-end_date', '-start_date']
 
 
-class Projects(models.Model):
+class Project(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     short_description = models.CharField(max_length=100)
@@ -65,10 +75,14 @@ class Projects(models.Model):
     end_date = models.DateField(blank=True, null=True)
     is_ongoing = models.BooleanField(default=False)
     github_link = models.URLField(blank=True, null=True)
-    skills = models.ManyToManyField(Skill, related_name='projects')
+    skills = models.ManyToManyField(Skill, related_name='project')
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        verbose_name_plural = "Project"
+        ordering = ['-end_date', '-start_date']
 
 
 class Certificates(models.Model):
@@ -83,4 +97,7 @@ class Certificates(models.Model):
 
     def __str__(self):
         return f'{self.name} from {self.issuing_organization}'
+    
+    class Meta:
+        ordering = ['-issue_date']
     
