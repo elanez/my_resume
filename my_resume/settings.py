@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 
 from pathlib import Path
+from decouple import config
 from dotenv import find_dotenv, load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'my_resume.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DATABASE_NAME', default=os.getenv('DATABASE_NAME')),
+        'USER': config('DATABASE_USER', default=os.getenv('DATABASE_USER')),
+        'PASSWORD': config('DATABASE_PASSWORD', default=os.getenv('DATABASE_PASSWORD')),
+        'HOST': config('DATABASE_HOST', default='localhost'),
+        'PORT': config('DATABASE_PORT', default='5432'),
     }
 }
 
