@@ -5,5 +5,20 @@
 {% endblock %}
 
 {% block content %}
-    My Resume
+    <h1>My Resume</h1>
+    <p>My name is {{ personal_info.first_name }} {{ personal_info.last_name }} and I am a {{ personal_info.title }}</p>
+
+    <h2>Experience</h2>
+    <ul>
+        {% for experience in experiences %}
+            <li>{{ experience.title }} at {{ experience.company }} from {{ experience.start_date }} to {{ experience.end_date }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Education</h2>
+    <ul>
+        {% for education in educations %}
+            <li>{{ education.degree }}  from {{ education.institution }} from {{ education.start_date }} to {{ education.end_date }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

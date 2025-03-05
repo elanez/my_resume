@@ -41,7 +41,7 @@ class Education(models.Model):
     gwa = models.FloatField(blank=True, null=True)
 
     def __str__(self):
-        return f'{self.degree} from {self.institution}'
+        return f'{self.degree}'
     
     class Meta:
         ordering = ['-end_date', '-start_date']
