@@ -1,24 +1,59 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}
     My Resume
 {% endblock %}
 
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "resume/index.css" %}" />
+{% endblock %}
+
 {% block content %}
-    <h1>My Resume</h1>
-    <p>My name is {{ personal_info.first_name }} {{ personal_info.last_name }} and I am a {{ personal_info.title }}</p>
+    <section id="header">
+        <header>
+            <img src="{% static "resume/images/formal.jfif" %}" alt="Elan"/>
+            <div class="personal-info">
+                <h1>{{ personal_info.first_name }} {{ personal_info.last_name }}</h1>
+                <h3>{{ personal_info.title }}</h3>
+                <h2>Phone</h2>
+                <p>{{ personal_info.phone_number }}</p>
+                <h2>Email</h2>
+                <p>{{ personal_info.email }}</p>
+                <h2>Address</h2>
+                <p>{{ personal_info.address }}</p>
+            </div>
+        </header>
+    </section>
 
-    <h2>Experience</h2>
-    <ul>
-        {% for experience in experiences %}
-            <li>{{ experience.title }} at {{ experience.company }} from {{ experience.start_date }} to {{ experience.end_date }}</li>
-        {% endfor %}
-    </ul>
+    <section id="Summary">
+        <h2>Summary</h2>
+        <p>{{ personal_info.summary }}</p>
+    </section>
 
-    <h2>Education</h2>
-    <ul>
-        {% for education in educations %}
-            <li>{{ education.degree }}  from {{ education.institution }} from {{ education.start_date }} to {{ education.end_date }}</li>
-        {% endfor %}
-    </ul>
+    <section id="Experience">
+        <h2>Experience</h2>
+        <ul>
+            {% for experience in experiences %}
+                <li>
+                    <b>{{ experience.title }}</b><br>
+                    {{ experience.company }} <br>
+                    {{ experience.start_date }} {% if experience.end_date  %} to {{ experience.end_date }} {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="Education">
+        <h2>Education</h2>
+        <ul>
+            {% for education in educations %}
+                <li>
+                    <b>{{ education.degree }}</b><br>
+                    {{ education.institution }}<br>
+                    from {{ education.start_date }} {% if education.end_date  %} to {{ education.end_date }} {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}

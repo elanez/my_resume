@@ -10,9 +10,41 @@ body {
     margin: 0;
 }
 
-h1,
-h2,
+/* p {
+    font-size: 1rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
 h3 {
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
+    font-size: 1.125rem;
+} */
+
+#main-navigation {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+  }
+
+  #main-navigation a{
+    text-decoration: none;
+    color: #000;
+  }
+
+#main-navigation ul {
+    display: flex;
+    list-style: none;
+}
+
+#main-navigation ul li {
+    margin-right: 1rem;
 }
