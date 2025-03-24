@@ -6,13 +6,14 @@
 {% endblock %}
 
 {% block css_files %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "resume/index.css" %}" />
 {% endblock %}
 
 {% block content %}
     <section id="header">
         <header>
-            <img src="{% static "resume/images/formal.jfif" %}" alt="Elan"/>
+            <img src="{% static "resume/images/formal.jfif" %}" alt="alt"/>
             <div class="personal-info">
                 <h1>{{ personal_info.first_name }} {{ personal_info.last_name }}</h1>
                 <h3>{{ personal_info.title }}</h3>
