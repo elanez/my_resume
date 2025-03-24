@@ -6,7 +6,7 @@ class PersonalInformation(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
-    profile_image = models.ImageField(upload_to='profile_images')
+    profile_image = models.ImageField(upload_to='profile_images') #TODO: might delete this
     phone_number = models.CharField(max_length=15)
     email = models.EmailField()
     address = models.CharField(max_length=100)
