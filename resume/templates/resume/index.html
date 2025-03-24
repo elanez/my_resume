@@ -39,7 +39,12 @@
                 <li class="job">
                     <b>{{ experience.title }}</b><br>
                     {{ experience.company }} <br>
-                    {{ experience.start_date }} {% if experience.end_date  %} to {{ experience.end_date }} {% endif %}
+                    {{ experience.start_date }} to 
+                    {% if experience.end_date  %}
+                        {{ experience.end_date }} 
+                    {% else %} 
+                        Present 
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
@@ -52,9 +57,18 @@
                 <li>
                     <b>{{ education.degree }}</b><br>
                     {{ education.institution }}<br>
-                    from {{ education.start_date }} {% if education.end_date  %} to {{ education.end_date }} {% endif %}
+                    {{ education.start_date }} to 
+                    {% if education.end_date %} 
+                        {{ education.end_date }} 
+                    {% else %} 
+                        Present 
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>
     </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "resume/js/section_animation.js" %}"></script>
 {% endblock %}
