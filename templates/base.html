@@ -7,22 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap" rel="stylesheet">
-    {% comment %} <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> {% endcomment %}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static "app.css" %}" />
     {% block css_files %}{% endblock %}
 </head>
 <body>
     <nav class="main-navigation">
-        <div class="nav-container">
-          <a href="#" class="nav-name">Elan Leonil Fernandez</a>
-          <ul class="nav-links">
-            <li><a href="#" class="nav-button">Blogs</a></li>
-            <li><a href="#" class="nav-button">About</a></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="nav-container">
+        <a href="#" class="nav-name">Elan Leonil Fernandez</a>
+        <ul class="nav-links">
+          <li><a href="#" class="nav-button">Blogs</a></li>
+          <li><a href="#" class="nav-button">About</a></li>
+        </ul>
+      </div>
+    </nav>
+      
     {% block content %}
     {% endblock %}
 
