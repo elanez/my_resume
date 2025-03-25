@@ -12,8 +12,8 @@ section {
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  borderお客様radius: 10px;
-  opacity: 0; /* Start hidden */
+  border-radius: 10px;
+  opacity: 0;
   transition: opacity 0.5s ease;
 }
 
@@ -81,11 +81,78 @@ section {
   animation-delay: 0.6s;
 }
 
+/* Responsibilities Section */
+#responsibilities {
+  background: #fff;
+  padding-bottom: 4rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#responsibilities.active {
+  opacity: 1;
+}
+
+#responsibilities h2 {
+  font-size: 2.5rem;
+  color: #16213e;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+#responsibilities h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #3498db; /* Blue underline to differentiate */
+}
+
+#responsibilities ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#responsibilities li {
+  background: #ecf0f1; /* Light gray background */
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+}
+
+#responsibilities.active li {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+/* Staggered Delays for Responsibilities */
+#responsibilities.active li:nth-child(1) { animation-delay: 0.2s; }
+#responsibilities.active li:nth-child(2) { animation-delay: 0.3s; }
+#responsibilities.active li:nth-child(3) { animation-delay: 0.4s; }
+#responsibilities.active li:nth-child(4) { animation-delay: 0.5s; }
+#responsibilities.active li:nth-child(5) { animation-delay: 0.6s; } /* Add more as needed */
+
+#responsibilities li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
 /* Skills Section */
 #skills {
   background: linear-gradient(135deg, #f9f9f9, #ecf0f1);
   padding-bottom: 4rem;
-  opacity: 0; /* Start hidden */
+  opacity: 0;
   transition: opacity 0.5s ease;
 }
 
@@ -130,7 +197,7 @@ section {
   color: #0f3460;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0; /* Start hidden individually */
+  opacity: 0;
 }
 
 #skills.active li {
@@ -194,6 +261,7 @@ section {
   }
 
   #summary h2,
+  #responsibilities h2,
   #skills h2 {
     font-size: 2rem;
   }
@@ -202,10 +270,12 @@ section {
     font-size: 1.5rem;
   }
 
+  #responsibilities ul,
   #skills ul {
     gap: 1rem;
   }
 
+  #responsibilities li,
   #skills li {
     padding: 0.6rem 1.2rem;
     font-size: 1rem;

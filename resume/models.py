@@ -56,6 +56,7 @@ class Experience(models.Model):
     end_date = models.DateField(blank=True, null=True)
     is_current = models.BooleanField(default=False)
     description = models.TextField()
+    responsibilities = models.JSONField(default=list)
     skills = models.ManyToManyField(Skill, related_name='experiences')
 
     def __str__(self):

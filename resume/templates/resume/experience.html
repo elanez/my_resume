@@ -17,6 +17,15 @@
         <p>{{ experience.description | linebreaks }}</p>
     </section>
 
+    <section id="responsibilities">
+        <h2>Job Responsibilities</h2>
+        <ul>
+            {% for responsibility in experience.responsibilities %}
+                <li>{{ responsibility }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
     <section id="skills">
         <h2>Skills</h2>
         <ul>
