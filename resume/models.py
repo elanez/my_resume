@@ -6,7 +6,6 @@ class PersonalInformation(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
-    profile_image = models.ImageField(upload_to='profile_images') #TODO: might delete this
     phone_number = models.CharField(max_length=15)
     email = models.EmailField()
     address = models.CharField(max_length=100)
@@ -23,8 +22,6 @@ class PersonalInformation(models.Model):
 
 class Skill(models.Model):
     name = models.CharField(max_length=50)
-    description = models.TextField()
-    icon = models.ImageField(upload_to='skill_icons', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -77,6 +74,13 @@ class Project(models.Model):
     is_ongoing = models.BooleanField(default=False)
     github_link = models.URLField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, related_name='project')
+    education = models.ForeignKey(
+        Education, 
+        on_delete=models.SET_NULL,  # If education is deleted, project remains
+        null=True, 
+        blank=True,  # Allows projects to exist without education
+        related_name="projects"
+    )
 
     def __str__(self):
         return self.title

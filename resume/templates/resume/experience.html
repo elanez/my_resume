@@ -12,7 +12,7 @@
 {% block content %}
     <section id="summary">
         <h2>{{ experience.title }}</h2>
-        <h3>{{ experience.company }}</h3>
+        <h3>{{ experience.company }} | {{ experience.location }}</h3>
         <p>{{ experience.start_date }} to {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</p>
         <p>{{ experience.description | linebreaks }}</p>
     </section>

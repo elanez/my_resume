@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Education
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "resume/education.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+        <h2>{{ education.degree }}</h2>
+        <h3>{{ education.institution }} | {{education.location}}</h3>
+        <p>{{ education.start_date }} to {% if education.end_date %}{{ education.end_date }}{% else %}Present{% endif %}</p>
+        <p>{{ education.description | linebreaks }}</p>
+        {% if education.gwa %}
+            <p>GWA: {{ education.gwa }}</p>
+        {% endif %}
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul>
+            {% for project in projects %}
+            <a href="#">
+                <li>{{ project.title }}</li>
+            </a>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "resume/js/section_animation.js" %}"/></script>
+{% endblock %}

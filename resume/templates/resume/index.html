@@ -35,7 +35,6 @@
         <h2>Experience</h2>
         <ul>
             {% for experience in experiences %}
-            
                 <a href="{% url "work-experience" experience.id %}">
                     <li class="job">
                         <b>{{ experience.title }}</b><br>
@@ -56,16 +55,18 @@
         <h2>Education</h2>
         <ul>
             {% for education in educations %}
-                <li>
-                    <b>{{ education.degree }}</b><br>
-                    {{ education.institution }}<br>
-                    {{ education.start_date }} to 
-                    {% if education.end_date %} 
-                        {{ education.end_date }} 
-                    {% else %} 
-                        Present 
-                    {% endif %}
-                </li>
+                <a href="{% url "education" education.id %}">
+                    <li>
+                        <b>{{ education.degree }}</b><br>
+                        {{ education.institution }}<br>
+                        {{ education.start_date }} to 
+                        {% if education.end_date %} 
+                            {{ education.end_date }} 
+                        {% else %} 
+                            Present 
+                        {% endif %}
+                    </li>
+                </a>
             {% endfor %}
         </ul>
     </section>

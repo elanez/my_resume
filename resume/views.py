@@ -25,3 +25,12 @@ def work_experience(request, pk):
         'experience': experience,
     }
     return render(request, 'resume/experience.html', context)
+
+def education(request, pk):
+    education = get_object_or_404(Education, pk=pk)
+    projects = education.projects.all()
+    context = {
+        'education': education,
+        'projects': projects,
+    }
+    return render(request, 'resume/education.html', context)

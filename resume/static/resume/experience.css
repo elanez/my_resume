@@ -54,7 +54,7 @@ section {
   animation-delay: 0.2s;
 }
 
-#summary p:first-of-type {
+#summary p{
   font-size: 1.2rem;
   color: #666;
   text-align: center;
@@ -62,23 +62,9 @@ section {
   opacity: 0;
 }
 
-#summary.active p:first-of-type {
+#summary.active p {
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.4s;
-}
-
-#summary p:last-of-type {
-  font-size: 1.2rem;
-  color: #333;
-  line-height: 1.8;
-  max-width: 800px;
-  margin: 0 auto;
-  opacity: 0;
-}
-
-#summary.active p:last-of-type {
-  animation: slideUp 0.8s ease-out forwards;
-  animation-delay: 0.6s;
 }
 
 /* Responsibilities Section */
@@ -109,7 +95,7 @@ section {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: #3498db; /* Blue underline to differentiate */
+  background: #3498db;
 }
 
 #responsibilities ul {
@@ -122,7 +108,7 @@ section {
 }
 
 #responsibilities li {
-  background: #ecf0f1; /* Light gray background */
+  background: #ecf0f1;
   padding: 1rem 1.5rem;
   border-radius: 8px;
   font-size: 1.1rem;
@@ -136,17 +122,11 @@ section {
   animation: slideUp 0.8s ease-out forwards;
 }
 
-/* Staggered Delays for Responsibilities */
 #responsibilities.active li:nth-child(1) { animation-delay: 0.2s; }
 #responsibilities.active li:nth-child(2) { animation-delay: 0.3s; }
 #responsibilities.active li:nth-child(3) { animation-delay: 0.4s; }
 #responsibilities.active li:nth-child(4) { animation-delay: 0.5s; }
-#responsibilities.active li:nth-child(5) { animation-delay: 0.6s; } /* Add more as needed */
-
-#responsibilities li:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-}
+#responsibilities.active li:nth-child(5) { animation-delay: 0.6s; }
 
 /* Skills Section */
 #skills {
@@ -204,13 +184,14 @@ section {
   animation: bounceIn 0.8s ease-out forwards;
 }
 
-/* Staggered Delays for Skills */
 #skills.active li:nth-child(1) { animation-delay: 0.2s; }
 #skills.active li:nth-child(2) { animation-delay: 0.3s; }
 #skills.active li:nth-child(3) { animation-delay: 0.4s; }
 #skills.active li:nth-child(4) { animation-delay: 0.5s; }
-#skills.active li:nth-child(5) { animation-delay: 0.6s; } /* Add more as needed */
+#skills.active li:nth-child(5) { animation-delay: 0.6s; }
 
+/* Hover Effects */
+#responsibilities li:hover,
 #skills li:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
