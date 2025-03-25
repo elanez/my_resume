@@ -25,7 +25,10 @@
         <ul>
             {% for project in projects %}
             <a href="#">
-                <li>{{ project.title }}</li>
+                <li>
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.short_description }}</p>
+                </li>
             </a>
             {% endfor %}
         </ul>
