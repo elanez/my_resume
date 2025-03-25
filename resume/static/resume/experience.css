@@ -1,0 +1,213 @@
+/* General Section Styling */
+section {
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Summary Section (Job Details) */
+#summary {
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  borderお客様radius: 10px;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease;
+}
+
+#summary.active {
+  opacity: 1;
+}
+
+#summary h2 {
+  font-size: 2.5rem;
+  color: #16213e;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+#summary h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #e94560, #3498db);
+  border-radius: 2px;
+}
+
+#summary h3 {
+  font-size: 1.8rem;
+  color: #0f3460;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+}
+
+#summary.active h3 {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+#summary p:first-of-type {
+  font-size: 1.2rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+}
+
+#summary.active p:first-of-type {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0.4s;
+}
+
+#summary p:last-of-type {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+}
+
+#summary.active p:last-of-type {
+  animation: slideUp 0.8s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+/* Skills Section */
+#skills {
+  background: linear-gradient(135deg, #f9f9f9, #ecf0f1);
+  padding-bottom: 4rem;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease;
+}
+
+#skills.active {
+  opacity: 1;
+}
+
+#skills h2 {
+  font-size: 2.5rem;
+  color: #16213e;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+#skills h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #e94560;
+}
+
+#skills ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#skills li {
+  background: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  color: #0f3460;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0; /* Start hidden individually */
+}
+
+#skills.active li {
+  animation: bounceIn 0.8s ease-out forwards;
+}
+
+/* Staggered Delays for Skills */
+#skills.active li:nth-child(1) { animation-delay: 0.2s; }
+#skills.active li:nth-child(2) { animation-delay: 0.3s; }
+#skills.active li:nth-child(3) { animation-delay: 0.4s; }
+#skills.active li:nth-child(4) { animation-delay: 0.5s; }
+#skills.active li:nth-child(5) { animation-delay: 0.6s; } /* Add more as needed */
+
+#skills li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.9) translateY(20px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
+  }
+
+  #summary h2,
+  #skills h2 {
+    font-size: 2rem;
+  }
+
+  #summary h3 {
+    font-size: 1.5rem;
+  }
+
+  #skills ul {
+    gap: 1rem;
+  }
+
+  #skills li {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+}

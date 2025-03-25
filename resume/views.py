@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from resume.models import PersonalInformation, Skill, Education, Experience, Project
 
 # Create your views here.
@@ -17,3 +17,11 @@ def index(request):
         'projects': projects,
     }
     return render(request, 'resume/index.html', context)
+
+
+def work_experience(request, pk):
+    experience = get_object_or_404(Experience, pk=pk)
+    context = {
+        'experience': experience,
+    }
+    return render(request, 'resume/experience.html', context)

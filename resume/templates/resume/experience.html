@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Work Experience
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "resume/experience.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <section id="summary">
+        <h2>{{ experience.title }}</h2>
+        <h3>{{ experience.company }}</h3>
+        <p>{{ experience.start_date }} to {% if experience.end_date %}{{ experience.end_date }}{% else %}Present{% endif %}</p>
+        <p>{{ experience.description | linebreaks }}</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            {% for skill in experience.skills.all %}
+                <li>{{ skill.name }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "resume/js/section_animation.js" %}"/></script>
+{% endblock %}

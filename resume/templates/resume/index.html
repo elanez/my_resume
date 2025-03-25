@@ -35,16 +35,19 @@
         <h2>Experience</h2>
         <ul>
             {% for experience in experiences %}
-                <li class="job">
-                    <b>{{ experience.title }}</b><br>
-                    {{ experience.company }} <br>
-                    {{ experience.start_date }} to 
-                    {% if experience.end_date  %}
-                        {{ experience.end_date }} 
-                    {% else %} 
-                        Present 
-                    {% endif %}
-                </li>
+            
+                <a href="{% url "work-experience" experience.id %}">
+                    <li class="job">
+                        <b>{{ experience.title }}</b><br>
+                        {{ experience.company }} <br>
+                        {{ experience.start_date }} to 
+                        {% if experience.end_date  %}
+                            {{ experience.end_date }} 
+                        {% else %} 
+                            Present 
+                        {% endif %}
+                    </li>
+                </a>
             {% endfor %}
         </ul>
     </section>
@@ -69,5 +72,5 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="{% static "resume/js/section_animation.js" %}"></script>
+    <script src="{% static "resume/js/section_animation.js" %}"/></script>
 {% endblock %}

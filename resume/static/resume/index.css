@@ -163,6 +163,11 @@
   }
 
 /* General Section Styling (Updated) */
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the text color from parent */
+}
+
 section {
     padding: 3rem 2rem;
     max-width: 1200px;
