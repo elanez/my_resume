@@ -27,8 +27,10 @@ def work_experience(request, pk):
     return render(request, 'resume/experience.html', context)
 
 def education(request, pk):
-    education = get_object_or_404(Education, pk=pk)
+    education = get_object_or_404(Education.objects.prefetch_related('projects'), pk=pk)
     projects = education.projects.all()
+    if not projects:
+        projects = []
     context = {
         'education': education,
         'projects': projects,
