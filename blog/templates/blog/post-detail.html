@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ post.title }}
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post-detail.css" %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="post-detail">
+    <div class="post-header">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}"/>
+        {% endif %}
+        <div class="post-meta">
+            <h1>{{ post.title }}</h1>
+            <div class="post-info">
+                <p>
+                    By {{ post.author|title }} on 
+                    <time datetime="{{ post.date|date:"Y-m-d" }}">{{ post.date|date:"F d, Y" }}</time>
+                </p>
+                <div class="post-tags">
+                    {% for tag in tags %}
+                        <span>#{{ tag.caption }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-content">
+        {{ post.content|linebreaks }}
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,85 @@
+/* Individual Post Styling */
+.post {
+    height: 100%; /* Make article fill the li */
+    display: flex;
+    flex-direction: column;
+}
+
+.post a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.post img {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Crop images nicely */
+}
+
+/* Fallback for posts without images */
+.post__fallback-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(45deg, #e0e0e0, #f0f0f0); /* Simple gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    font-style: italic;
+}
+
+.post__fallback-image::before {
+    content: "No Image"; /* Placeholder text */
+}
+
+.post__content {
+    padding: 1.5rem;
+    flex-grow: 1; /* Allow content to take remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+.post__content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: #16213e; /* Dark blue */
+    font-weight: 600;
+}
+
+.post__meta {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.post__excerpt {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* Pushes tags down */
+}
+
+.post__tags {
+    margin-top: auto; /* Push tags to the bottom */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.post__tags span {
+    background-color: #e94560; /* Vibrant red */
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Hover effect consistency */
+.post a:hover .post__content h3 {
+    color: #e94560; /* Change title color on hover */
+} 

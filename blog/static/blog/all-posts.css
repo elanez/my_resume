@@ -1,0 +1,82 @@
+/* All Posts Section Styling */
+#all-posts {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto; /* Add some margin top/bottom */
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9; /* Light background similar to resume sections */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Heading Styling */
+#all-posts h2 {
+    font-size: 2.5rem;
+    color: #16213e; /* Dark blue */
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    font-weight: 700; /* Make it bolder */
+}
+
+/* Underline for Heading */
+#all-posts h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #e94560, #3498db); /* Gradient underline */
+    border-radius: 2px;
+}
+
+/* Post List Styling */
+#all-posts ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 2rem; /* Space between posts */
+    padding: 0; /* Remove default padding */
+}
+
+/* Individual Post Item Styling (assuming <li> structure from include) */
+/* If your include uses a different structure, adjust the selector */
+#all-posts ul li {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Ensures content respects border-radius */
+}
+
+#all-posts ul li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #all-posts {
+        padding: 2rem 1rem;
+        margin: 1rem auto;
+    }
+
+    #all-posts h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #all-posts ul {
+        grid-template-columns: 1fr; /* Stack posts vertically on smaller screens */
+        gap: 1.5rem;
+    }
+}
+
+/* Add styles for content inside the li if needed, e.g., */
+/*
+#all-posts ul li img { ... }
+#all-posts ul li h3 { ... }
+#all-posts ul li p { ... }
+*/ 
