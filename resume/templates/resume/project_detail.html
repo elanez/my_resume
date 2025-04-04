@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    {{ project.title }} - Project Details
+{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "resume/project_detail.css" %}" />
+{% endblock %}
+
+{% block content %}
+    <section id="project-detail">
+        <h1>{{ project.title }}</h1>
+        
+        <div class="project-meta animate-section">
+             {% if project.image %}
+                <img src="{{ project.image.url }}" alt="{{ project.title }}"/>
+            {% else %}
+                <div class="project__fallback-image">No Image Available</div>
+            {% endif %}
+            
+            <div class="meta-info">
+                <p><strong>Duration:</strong> {{ project.start_date }} to 
+                    {% if project.end_date %}
+                        {{ project.end_date }}
+                    {% elif project.is_ongoing %}
+                        Present
+                    {% else %}
+                        Completed (End date not specified)
+                    {% endif %}
+                </p>
+                {% if project.github_link %}
+                    <p><strong>Repository:</strong> <a href="{{ project.github_link }}" target="_blank">View on GitHub</a></p>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="description animate-section">
+            <h2>Description</h2>
+            <p>{{ project.detailed_description|linebreaks }}</p>
+        </div>
+        
+        {% if project.skills.all %}
+            <div class="skills animate-section">
+                <h2>Skills Used</h2>
+                <ul>
+                    {% for skill in project.skills.all %}
+                        <li>{{ skill.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        
+        <div class="navigation animate-section">
+             <p><a href="{% url 'home-page' %}#projects">Back to Resume</a></p>
+        </div>
+    </section>
+{% endblock %}
+
+{% block scripts %}
+    <script src="{% static "resume/js/section_animation.js" %}"></script>
+{% endblock %} 
