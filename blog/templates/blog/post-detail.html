@@ -35,4 +35,9 @@
         {{ post.content|linebreaks }}
     </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }} {# Include scripts from base template if any #}
+    <script src="{% static "resume/js/section_animation.js" %}"></script>
 {% endblock %} 

@@ -1,8 +1,18 @@
 /* Individual Post Styling */
 .post {
-    height: 100%; /* Make article fill the li */
+    /* height: 100%; */ /* Removed as flex inside 'a' handles height */
     display: flex;
     flex-direction: column;
+    background: #fff; /* White background for card */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden; /* Keep image within bounds */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+.post:hover {
+  transform: translateY(-8px) scale(1.02); /* Lift and slightly enlarge on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
 }
 
 .post a {
@@ -79,7 +89,8 @@
     font-weight: 500;
 }
 
-/* Hover effect consistency */
+/* Hover effect consistency - Removing specific title color change, handled by card hover */
+/*
 .post a:hover .post__content h3 {
     color: #e94560; /* Change title color on hover */
-} 
+/* } */ 
