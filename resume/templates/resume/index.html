@@ -70,6 +70,25 @@
             {% endfor %}
         </ul>
     </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <ul class="projects-list">
+            {% for project in projects %}
+                <li class="project-item">
+                    <h3>{{ project.title }}</h3>
+                    {% if project.image %}
+                        <img src="{{ project.image.url }}" alt="{{ project.title }}"/>
+                    {% else %}
+                        <div class="project__fallback-image">No Image Available</div>
+                    {% endif %}
+                    <p>{{ project.short_description }}</p>
+                </li>
+            {% empty %}
+                <li>No projects listed yet.</li>
+            {% endfor %}
+        </ul>
+    </section>
 {% endblock %}
 
 {% block scripts %}

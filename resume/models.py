@@ -63,12 +63,16 @@ class Experience(models.Model):
         ordering = ['-end_date', '-start_date']
 
 
+def project_upload_path(instance, filename):
+    # Creates path like: uploads/projects/filename
+    return f'uploads/projects/{filename}'
+
 class Project(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
     short_description = models.CharField(max_length=100)
     detailed_description = models.TextField()
-    image = models.ImageField(upload_to='project_images', blank=True, null=True)
+    image = models.ImageField(upload_to=project_upload_path, blank=True, null=True)
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     is_ongoing = models.BooleanField(default=False)
