@@ -34,10 +34,17 @@
     <div class="post-content">
         {{ post.content|linebreaks }}
     </div>
-    <form action="{% url 'add-to-read-later' post.slug %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="read-later-button">Add to Read Later</button>
-    </form>
+    {% if is_in_read_later %}
+        <form action="{% url 'remove-from-read-later' post.slug %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="read-later-button">Remove from Read Later</button>
+        </form>
+    {% else %}
+        <form action="{% url 'add-to-read-later' post.slug %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="read-later-button">Add to Read Later</button>
+        </form>
+    {% endif %}
 </section>
 {% endblock %}
 

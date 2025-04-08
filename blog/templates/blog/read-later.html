@@ -14,7 +14,15 @@ Read Later
     <h2>My Read Later List</h2>
     <ul>
       {% for post in posts %}
-        <li><a href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a></li>
+        <li>
+            <div class="post-item">
+                <a href="{% url 'post-detail-page' post.slug %}">{{ post.title }}</a>
+                <form action="{% url 'remove-from-read-later' post.slug %}" method="post" class="remove-form">
+                    {% csrf_token %}
+                    <button type="submit" class="remove-button">Remove</button>
+                </form>
+            </div>
+        </li>
       {% empty %}
         <li>No posts in your read later list.</li>
       {% endfor %}

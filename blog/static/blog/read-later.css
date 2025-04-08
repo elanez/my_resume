@@ -50,7 +50,16 @@
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    padding: 0;
+}
+
+/* Inner div for content and button */
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.5rem;
+    gap: 1rem;
 }
 
 #read-later ul li:hover {
@@ -68,6 +77,26 @@
 
 #read-later ul li a:hover {
     color: #e94560;
+}
+
+/* Remove Button Styling */
+.remove-form {
+    margin: 0;
+}
+
+.remove-button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+    background-color: #bbb;
 }
 
 /* Responsive Adjustments */
