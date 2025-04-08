@@ -32,10 +32,12 @@ A modern, dynamic personal resume website built with Django that allows you to s
 Create a `.env` file in the root directory with the following variables:
 
 ```env
-DEBUG=True
-SECRET_KEY=your-secret-key-here
-DATABASE_URL=postgres://user:password@localhost:5432/dbname
-ALLOWED_HOSTS=localhost,127.0.0.1
+SECRET_KEY=your-secret-key-from-django
+DATABASE_NAME=
+DATABASE_USER=
+DATABASE_PASSWORD=
+DATABASE_HOST=
+DATABASE_PORT=
 ```
 
 ## Project Structure
