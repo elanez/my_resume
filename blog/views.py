@@ -41,4 +41,12 @@ def remove_from_read_later(request, slug):
         if slug in read_later_list:
             read_later_list.remove(slug)
             request.session['read_later'] = read_later_list
-    return redirect('post-detail-page', slug=slug)
+        
+        # Get the referer URL path
+        referer = request.META.get('HTTP_REFERER', '')
+        if 'posts/' in referer:
+            # If coming from post detail page, redirect back to that page
+            return redirect('post-detail-page', slug=slug)
+    
+    # Default: redirect to read-later page
+    return redirect('read-later-page')
