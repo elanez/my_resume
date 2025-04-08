@@ -1,6 +1,6 @@
 # Personal Resume Website
 
-A modern, dynamic personal resume website built with Django that allows you to showcase your professional experience, skills, and blog posts. This project was created using AI agents for personal improvement and development.
+A modern, dynamic personal resume website built with Django that allows you to showcase your professional experience, skills, and blog posts. This a passion project created with the use of AI agents for personal improvement and development.
 
 ## Features
 
