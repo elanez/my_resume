@@ -34,6 +34,10 @@
     <div class="post-content">
         {{ post.content|linebreaks }}
     </div>
+    <form action="{% url 'add-to-read-later' post.slug %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="read-later-button">Add to Read Later</button>
+    </form>
 </section>
 {% endblock %}
 

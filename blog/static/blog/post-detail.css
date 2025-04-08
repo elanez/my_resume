@@ -107,4 +107,22 @@
     .post-content {
         font-size: 1rem;
     }
+}
+
+/* Add styles for the read-later-button */
+.read-later-button {
+    background-color: #e94560;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.read-later-button:hover {
+    background-color: #d13a4f;
 } 

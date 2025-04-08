@@ -1,0 +1,89 @@
+/* Add styles for the read-later page here */
+
+/* Read Later Section Styling */
+#read-later {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    font-family: 'Poppins', sans-serif;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Heading Styling */
+#read-later h2 {
+    font-size: 2.5rem;
+    color: #16213e;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    font-weight: 700;
+}
+
+/* Underline for Heading */
+#read-later h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, #e94560, #3498db);
+    border-radius: 2px;
+}
+
+/* Post List Styling */
+#read-later ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 0;
+}
+
+/* Individual Post Item Styling */
+#read-later ul li {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    padding: 1.5rem;
+}
+
+#read-later ul li:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Post Link Styling */
+#read-later ul li a {
+    text-decoration: none;
+    color: #16213e;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+#read-later ul li a:hover {
+    color: #e94560;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #read-later {
+        padding: 2rem 1rem;
+        margin: 1rem auto;
+    }
+
+    #read-later h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    #read-later ul {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+} 
