@@ -24,7 +24,7 @@
         <h2>Projects</h2>
         <ul>
             {% for project in projects %}
-            <a href="#">
+            <a href="{% url 'project-detail' project.id %}">
                 <li>
                     <h3>{{ project.title }}</h3>
                     <p>{{ project.short_description }}</p>
