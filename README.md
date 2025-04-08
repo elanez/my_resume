@@ -6,7 +6,6 @@ A modern, dynamic personal resume website built with Django that allows you to s
 
 - Professional resume display with sections for experience, education, and skills
 - Blog functionality to share your thoughts and insights
-- AI-powered content suggestions and improvements
 - Responsive design that works on all devices
 - Easy-to-use admin interface for content management
 
@@ -14,7 +13,6 @@ A modern, dynamic personal resume website built with Django that allows you to s
 
 - **Django**: A high-level Python web framework for rapid development
 - **Python**: The core programming language
-- **AI Agents**: Integrated AI capabilities for content enhancement and suggestions
 - **HTML/CSS**: For responsive and modern design
 - **JavaScript**: For interactive features and dynamic content
 - **PostgreSQL**: Database for storing content and user data
