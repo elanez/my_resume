@@ -428,26 +428,28 @@ section {
 }
 
 .projects-list {
-  list-style: none;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem; /* Spacing between project items */
-  justify-content: center; /* Center items horizontally */
+  gap: 2rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .project-item {
-  background: #fff; /* White background for card */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  overflow: hidden; /* Keep image within bounds */
-  width: calc(33% - 1.5rem); /* Adjust for 3 columns with gap */
-  min-width: 300px; /* Minimum width */
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  opacity: 0; /* For animation */
-  transform: translateY(20px); /* For animation */
-  display: flex; /* Use flexbox for internal layout */
-  flex-direction: column; /* Stack image, title, description */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 #projects.active .project-item {
@@ -458,7 +460,6 @@ section {
 #projects.active .project-item:nth-child(3) { animation-delay: 0.2s; }
 #projects.active .project-item:nth-child(4) { animation-delay: 0.3s; }
 /* Add more if needed */
-
 
 .project-item:hover {
   transform: translateY(-8px) scale(1.02); /* Lift and slightly enlarge on hover */
@@ -501,16 +502,18 @@ section {
 /* Responsive adjustments for projects */
 @media (max-width: 992px) {
   .project-item {
-    width: calc(50% - 1rem); /* 2 columns on medium screens */
+    min-width: 250px;
+    max-width: 350px;
   }
 }
 
 @media (max-width: 768px) {
   #projects h2 {
-      font-size: 2.2rem; /* Slightly smaller heading */
+    font-size: 2rem;
   }
+  
   .project-item {
-    width: calc(100% - 1rem); /* 1 column on smaller screens */
-    min-width: unset; /* Remove min-width */
+    min-width: 100%;
+    max-width: 100%;
   }
 }
