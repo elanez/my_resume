@@ -12,7 +12,9 @@
 {% block content %}
     <section id="header">
         <header>
-            <img src="{% static "resume/images/formal.jfif" %}" alt="alt"/>
+            {% if personal_info.profile_picture %}
+                <img src="{{ personal_info.profile_picture.url }}" alt="Profile Picture"/>
+            {% endif %}
             <div class="personal-info">
                 <h1>{{ personal_info.first_name }} {{ personal_info.last_name }}</h1>
                 <h3>{{ personal_info.title }}</h3>

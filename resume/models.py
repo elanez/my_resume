@@ -1,5 +1,9 @@
 from django.db import models
 
+def profile_picture_upload_path(instance, filename):
+    # Creates path like: uploads/profile_pictures/filename
+    return f'uploads/profile_pictures/{filename}'
+
 # Create your models here.
 
 class PersonalInformation(models.Model):
@@ -12,6 +16,7 @@ class PersonalInformation(models.Model):
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     summary = models.TextField()
+    profile_picture = models.ImageField(upload_to=profile_picture_upload_path, blank=True, null=True)
 
     def __str__(self):
         return f'{self.first_name} {self.last_name}'
